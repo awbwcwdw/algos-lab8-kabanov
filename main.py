@@ -6,9 +6,23 @@ monthly_spending = [2689.56, 2770.38, 2394.04, 2099.91, 3182.20, 3267.12, 1746.8
 ```  
 Напишите программу, которая с помощью цикла `for` вычисляет средние расходы Джона за первый семестр (январь–июнь) и второй семестр (июль–декабрь).  
 
----
+monthly_spending = [2689.56, 2770.38, 2394.04, 2099.91, 3182.20, 3267.12, 1746.83, 2545.72, 3328.20, 3147.30, 2462.61, 3890.45]
+first_sum = 0
+second_sum = 0
+for month in range(12):
+    if month < 6:
+        first_sum += monthly_spending [month]
 
-### Задача 2: Кто тратил больше?  
+else: second_sum += monthly_spending [month]
+
+first_sum_average = first_sum / 6
+second_sum_average = second_sum / 6
+
+print(f"РАСХОДЫ ЗА ПЕРВЫЙ СЕМЕСТР:{first_sum:.2f}")
+print(f"РАСХОДЫ ЗА ВТОРОЙ СЕМЕСТР:{second_sum:.2f}")
+
+
+### Задача 2: Кто тратил больше? 
 У Джона есть друг Сэм, который также записал свои ежемесячные расходы за прошлый год:  
 ```python
 john_monthly_spending = [2689.56, 2770.38, 2394.04, 2099.91, 3182.20, 3267.12, 1746.83, 2545.72, 3328.20, 3147.30, 2462.61, 3890.45]  
@@ -16,7 +30,18 @@ sam_monthly_spending = [1969.62, 3939.37, 2241.59, 3968.27, 3068.80, 1755.02, 38
 ```  
 Напишите программу, которая сравнивает расходы Джона и Сэма по месяцам и подсчитывает количество месяцев, в которых Джон тратил больше.  
 
----
+john_monthly_spending = [2689.56, 2770.38, 2394.04, 2099.91, 3182.20, 3267.12, 1746.83, 2545.72, 3328.20, 3147.30, 2462.61, 3890.45]  
+sam_monthly_spending = [1969.62, 3939.37, 2241.59, 3968.27, 3068.80, 1755.02, 3885.66, 2491.67, 3828.49, 3171.32, 2771.32, 3380.37]
+total_spending_john = sum(john_monthly_spending)
+total_spending_sam = sum(sam_monthly_spending)
+
+if total_spending_john > total_spending_sam:
+    print(f"Джон потратил больше: {total_spending_john:.2f} против {total_spending_sam:.2f}")
+elif total_spending_john < total_spending_sam:
+    print(f"Сэм потратил больше: {total_spending_sam:.2f} против {total_spending_john:.2f}")
+else:
+    print(f"джон и сэм потратили одинакова: {total_spending_john:.2f}")
+
 
 ### Задача 3: Список друзей  
 У Пола и Тины есть списки друзей:  
@@ -26,12 +51,28 @@ tina_friends = ["Tim", "Susan", "Mary", "Josh"]
 ```  
 Объедините оба списка в один, исключив дублирующиеся имена.  
 
----
+paul_friends = ["Mary", "Tim", "Mike", "Henry"]
+tina_friends = ["Tim", "Susan", "Mary", "Josh"]
+
+combined_friends = list(set(paul_friends) | set(tina_friends))
+print(combined_friends)
+
+
 
 ### Задача 4: Общие друзья  
 Используя те же списки друзей Пола и Тины, напишите программу, которая с помощью цикла находит их общих друзей.  
 
----
+paul_friends = ["Mary", "Tim", "Mike", "Henry"]
+tina_friends = ["Tim", "Susan", "Mary", "Josh"]
+common_friends = []
+
+for friend in paul_friends:
+    if friend in tina_friends:
+        common_friends.append(friend)
+
+print("общие друзьяшки:", common_friends)
+
+
 
 ### Задача 5: Игроки в баскетбол  
 В спортивном клубе зарегистрированы игроки:  
@@ -42,7 +83,14 @@ basketball_players = {"Eve", "Richard", "Jessica", "Sam", "Michael"}
 ```  
 Напишите программу, которая определяет игроков, зарегистрированных только в баскетболе (не в футболе и не в волейболе).  
 
----
+football_players = {"Eve", "Tom", "Richard", "Peter"}  
+volleyball_players = {"Jack", "Hugh", "Peter", "Sam"}  
+basketball_players = {"Eve", "Richard", "Jessica", "Sam", "Michael"}
+
+
+
+
+
 
 ### Задача 6: Подсчёт голосов  
 Результаты опроса о любимом языке программирования:  
@@ -51,7 +99,9 @@ poll_results = ["Python", "Java", "Javascript", "Python", "Javascript", "Python"
 ```  
 Используя словарь, подсчитайте количество голосов за каждый язык.  
 
----
+
+
+
 
 ### Задача 7: Подсчёт очков  
 Три друга играют в игру, где каждый игрок зарабатывает очки в трёх раундах. Их результаты:  
